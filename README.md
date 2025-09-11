@@ -2,7 +2,7 @@
 
 A serverless Node.js application that automates Google Ads data pulling, performance analysis, and ad generation using Airtable as the data management platform.
 
-## 🚀 Features
+##  Features
 
 - **Daily Data Sync**: Automatically pulls campaign, ad group, keyword, and ad performance data from Google Ads
 - **Airtable Integration**: Stores and manages data in a relational database structure
@@ -11,7 +11,7 @@ A serverless Node.js application that automates Google Ads data pulling, perform
 - **Automated Upload**: Queues and uploads new ads back to Google Ads
 - **Serverless Architecture**: Built for Vercel with automatic scaling
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - Node.js 18+ 
 - Google Ads API access
@@ -19,7 +19,7 @@ A serverless Node.js application that automates Google Ads data pulling, perform
 - Claude API access
 - Vercel account (for deployment)
 
-## 🛠️ Installation
+##  Installation
 
 1. **Clone the repository**
    ```bash
@@ -43,7 +43,7 @@ A serverless Node.js application that automates Google Ads data pulling, perform
    npm run setup
    ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -75,7 +75,7 @@ LOG_LEVEL=info
 
 Follow the `AIRTABLE_SETUP.md` guide to set up your Airtable base with the required tables and fields.
 
-## 🚀 Usage
+##  Usage
 
 ### Local Development
 
@@ -118,7 +118,7 @@ Follow the `AIRTABLE_SETUP.md` guide to set up your Airtable base with the requi
 
 4. **Configure cron jobs** (automatically set up via `vercel.json`)
 
-## 📊 API Endpoints
+##  API Endpoints
 
 ### Data Management
 - `POST /api/data/pull-performance` - Pull performance data from Google Ads
@@ -136,7 +136,7 @@ Follow the `AIRTABLE_SETUP.md` guide to set up your Airtable base with the requi
 - `POST /api/ads/generate` - Generate new ads with AI
 - `POST /api/ads/upload` - Upload ads to Google Ads
 
-## 🔄 Automation
+## Automation
 
 The system includes automated cron jobs:
 
@@ -144,7 +144,7 @@ The system includes automated cron jobs:
 - **Performance Analysis**: Runs at 10:00 AM UTC daily  
 - **Ad Upload**: Runs every 6 hours
 
-## 📈 Project Phases
+## Project Phases
 
 ### Phase 1: Data Integration (Current)
 - ✅ Google Ads API integration
@@ -164,7 +164,7 @@ The system includes automated cron jobs:
 - 🔄 Google Ads upload
 - 🔄 Complete automation
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests
@@ -179,13 +179,13 @@ npm run test:e2e
 npm run test-connection
 ```
 
-## 📝 Logging
+## Logging
 
 Logs are stored in the `logs/` directory:
 - `error.log` - Error messages only
 - `combined.log` - All log messages
 
-## 🚨 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -210,26 +210,3 @@ Enable debug logging:
 LOG_LEVEL=debug npm start
 ```
 
-## 📞 Support
-
-For issues and questions:
-1. Check the logs in `logs/` directory
-2. Run `npm run test-connection` to verify setup
-3. Check the API health endpoint
-4. Review the troubleshooting guide
-
-## 📄 License
-
-MIT License - see LICENSE file for details.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests
-5. Submit a pull request
-
----
-
-**Built with ❤️ for Google Ads automation**
