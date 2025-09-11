@@ -14,16 +14,6 @@ router.get('/health', async (req, res) => {
   }
 });
 
-// Progress endpoint
-router.get('/progress', async (req, res) => {
-  try {
-    const progress = require('../system/progress');
-    return await progress(req, res);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
 // Test connections endpoint
 router.get('/test-connections', async (req, res) => {
   try {
@@ -41,7 +31,8 @@ router.get('/test-connections', async (req, res) => {
     try {
       const googleAds = new GoogleAdsClient();
       await googleAds.initialize();
-      results.googleAds = true;
+      const token = await googleAds.getAccessToken();
+      results.googleAds = !!token;
     } catch (error) {
       logger.error('Google Ads connection test failed:', error);
     }

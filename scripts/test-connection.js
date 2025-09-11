@@ -17,26 +17,15 @@ async function testConnections() {
   try {
     const googleAds = new GoogleAdsClient();
     await googleAds.initialize();
+    const token = await googleAds.getAccessToken();
     
-    // Test with a simple query instead of access token
-    try {
-      const campaigns = await googleAds.pullCampaignData(config.googleAds.customerId, {
-        start: '2024-01-01',
-        end: '2024-01-01'
-      });
-      
+    if (token) {
       results.googleAds.connected = true;
       console.log('   ✅ Google Ads API connected successfully');
       console.log(`   📊 Customer ID: ${config.googleAds.customerId}`);
       console.log(`   📊 MCC Customer ID: ${config.googleAds.mccCustomerId}`);
-      console.log(`   📊 Test query returned ${campaigns.length} campaigns`);
-    } catch (queryError) {
-      // If query fails, still consider it connected if initialization worked
-      results.googleAds.connected = true;
-      console.log('   ✅ Google Ads API client initialized successfully');
-      console.log(`   ⚠️  Query test failed: ${queryError.message}`);
-      console.log(`   📊 Customer ID: ${config.googleAds.customerId}`);
-      console.log(`   📊 MCC Customer ID: ${config.googleAds.mccCustomerId}`);
+    } else {
+      console.log('   ❌ Failed to get access token');
     }
   } catch (error) {
     results.googleAds.error = error.message;
